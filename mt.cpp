@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <string>
 #include <future>
+#include <map>
 
 #define sleepTime 0.01s
 
@@ -30,7 +31,6 @@ std::string printer(string message, int threadNumber)
 		{
 			newMessage = mutation(message, threadNumber);
 			//cout<<newMessage<<endl;
-			
 			mutexSync.unlock();
 			std::this_thread::sleep_for(sleepTime);
 	    		auto timerEnd = std::chrono::high_resolution_clock::now();
@@ -42,16 +42,14 @@ std::string printer(string message, int threadNumber)
 int main(int argc, char* argv[])
 {
 	std::vector<std::thread> threads;
-	std::vector<std::string> resultString;
+	std::map<int,std::string> stringForPrint;
 	while(1){
 		for(int threadNumber = 0; threadNumber < stoi(argv[1]); threadNumber++)
 		{
 			std::string message;
-			//std::thread _thread(printer, message, threadNumber);
 			std::future<std::string> resultString = std::async(std::launch::async, printer, message, threadNumber); 
-			//threads.emplace_back(std::move(_thread));
-			auto stringForPrint = resultString.get();
-			cout<<stringForPrint<<endl;
+			stringForPrint[threadNumber] = resultString.get();
+			cout<<stringForPrint[threadNumber]<<endl;
 		}
 
 	/*for(auto &_thread : threads)
