@@ -42,12 +42,13 @@ std::string printer(string message, int threadNumber)
 int main(int argc, char* argv[])
 {
 	std::vector<std::thread> threads;
-	std::map<int,std::string> stringForPrint;
+	std::vector<std::string> stringForPrint(stoi(argv[1]));
 	while(1){
 		for(int threadNumber = 0; threadNumber < stoi(argv[1]); threadNumber++)
 		{
+
 			std::string message;
-			std::future<std::string> resultString = std::async(std::launch::async, printer, message, threadNumber); 
+			std::future<std::string> resultString = std::async(std::launch::async, printer, message, threadNumber);
 			stringForPrint[threadNumber] = resultString.get();
 			cout<<stringForPrint[threadNumber]<<endl;
 		}
