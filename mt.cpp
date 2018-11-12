@@ -52,11 +52,6 @@ int main(int argc, char* argv[])
 			stringForPrint[threadNumber] = resultString.get();
 			cout<<stringForPrint[threadNumber]<<endl;
 		}
-
-	/*for(auto &_thread : threads)
-	{
-		_thread.join();
-	}*/
 	}
 	return 0;
 }
