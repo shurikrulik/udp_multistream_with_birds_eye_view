@@ -1,0 +1,4 @@
+/home/aleksandr/Загрузки/udp-image-streaming-mt/CMakeFiles/edit_cache.dir
+/home/aleksandr/Загрузки/udp-image-streaming-mt/CMakeFiles/rebuild_cache.dir
+/home/aleksandr/Загрузки/udp-image-streaming-mt/CMakeFiles/server.dir
+/home/aleksandr/Загрузки/udp-image-streaming-mt/CMakeFiles/client.dir
