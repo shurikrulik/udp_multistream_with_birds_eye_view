@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/aleksandr/Загрузки/udp-image-streaming-mt/PracticalSocket.cpp
+/home/aleksandr/Загрузки/multithreading/parts/PracticalSocket.cpp
 PracticalSocket.h
-/home/aleksandr/Загрузки/udp-image-streaming-mt/PracticalSocket.h
+/home/aleksandr/Загрузки/multithreading/parts/PracticalSocket.h
 winsock.h
 -
 sys/types.h
@@ -28,7 +28,7 @@ errno.h
 string.h
 -
 
-/home/aleksandr/Загрузки/udp-image-streaming-mt/PracticalSocket.h
+/home/aleksandr/Загрузки/multithreading/parts/PracticalSocket.h
 cstdlib
 -
 exception
@@ -36,9 +36,9 @@ exception
 string
 -
 
-/home/aleksandr/Загрузки/udp-image-streaming-mt/Server.cpp
+/home/aleksandr/Загрузки/multithreading/parts/Server.cpp
 PracticalSocket.h
-/home/aleksandr/Загрузки/udp-image-streaming-mt/PracticalSocket.h
+/home/aleksandr/Загрузки/multithreading/parts/PracticalSocket.h
 iostream
 -
 cstdlib
@@ -59,14 +59,12 @@ stdio.h
 -
 stdarg.h
 -
-future
--
 opencv2/opencv.hpp
-/home/aleksandr/Загрузки/udp-image-streaming-mt/opencv2/opencv.hpp
+/home/aleksandr/Загрузки/multithreading/parts/opencv2/opencv.hpp
 config.h
-/home/aleksandr/Загрузки/udp-image-streaming-mt/config.h
+/home/aleksandr/Загрузки/multithreading/parts/config.h
 
-/home/aleksandr/Загрузки/udp-image-streaming-mt/config.h
+/home/aleksandr/Загрузки/multithreading/parts/config.h
 
 /usr/local/include/opencv/cxcore.h
 opencv2/core/core_c.h

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aleksandr/Загрузки/udp-image-streaming-mt
+CMAKE_SOURCE_DIR = /home/aleksandr/Загрузки/multithreading/parts
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aleksandr/Загрузки/udp-image-streaming-mt
+CMAKE_BINARY_DIR = /home/aleksandr/Загрузки/multithreading/parts
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aleksandr/Загрузки/udp-image-streaming-mt/CMakeFiles /home/aleksandr/Загрузки/udp-image-streaming-mt/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aleksandr/Загрузки/multithreading/parts/CMakeFiles /home/aleksandr/Загрузки/multithreading/parts/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aleksandr/Загрузки/udp-image-streaming-mt/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aleksandr/Загрузки/multithreading/parts/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
