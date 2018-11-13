@@ -59,6 +59,8 @@ stdio.h
 -
 stdarg.h
 -
+future
+-
 opencv2/opencv.hpp
 /home/aleksandr/Загрузки/multithreading/parts/opencv2/opencv.hpp
 config.h

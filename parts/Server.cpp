@@ -9,6 +9,7 @@
 #include <string>
 #include <stdio.h>
 #include <stdarg.h>
+#include <future>
 
 #include "opencv2/opencv.hpp"
 #include "config.h"
@@ -22,7 +23,7 @@ using namespace std::chrono_literals;
 
 std::mutex mutexSync;
 
-void udp_receive(unsigned short servPort)
+Mat udp_receive(unsigned short servPort)
 {
 	UDPSocket sock(servPort);
 
@@ -59,9 +60,8 @@ void udp_receive(unsigned short servPort)
                 cerr << "decode failure!" << endl;
                 continue;
             }
-            imshow("recv", frame);
+            
             free(longbuf);
-
             waitKey(1);
             clock_t next_cycle = clock();
             double duration = (next_cycle - last_cycle) / (double) CLOCKS_PER_SEC;
@@ -69,6 +69,8 @@ void udp_receive(unsigned short servPort)
 
             cout << next_cycle - last_cycle;
             last_cycle = next_cycle;
+		//imshow("recv", frame);
+		return frame;
 }
 }
 
@@ -83,12 +85,13 @@ int main(int argc, char * argv[])
     std::vector<std::thread> threads;
 
     unsigned short servPort = atoi(argv[1]); // First arg:  local port
-
+	Mat recvFrame;
     namedWindow("recv", CV_WINDOW_AUTOSIZE);
     while(1)
     {
 	    try {
-		    udp_receive(servPort);
+		    std::future<Mat> recvFrame = std::async(std::launch::async, udp_receive, servPort);
+			imshow("recv", recvFrame.get());
 		}
 	     catch (SocketException & e) 
             {
