@@ -30,8 +30,8 @@ using namespace cv;
 
 
 int main(int argc, char * argv[]) {
-    if ((argc < 3) || (argc > 3)) { // Test for correct number of arguments
-        cerr << "Usage: " << argv[0] << " <Server> <Server Port>\n";
+    if ((argc < 4) || (argc > 4)) { // Test for correct number of arguments
+        cerr << "Usage: " << argv[0] << " <Server> <Server Port> <Camera number>\n";
         exit(1);
     }
 
@@ -44,7 +44,7 @@ int main(int argc, char * argv[]) {
 
         Mat frame, send;
         vector < uchar > encoded;
-        VideoCapture cap(0); // Grab the camera
+        VideoCapture cap(atoi(argv[3])); // Grab the camera
         namedWindow("send", CV_WINDOW_AUTOSIZE);
         if (!cap.isOpened()) {
             cerr << "OpenCV Failed to open camera";

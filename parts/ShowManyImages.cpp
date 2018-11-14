@@ -174,9 +174,9 @@ Mat img3 = imread("e3.jpg");
 Mat img4 = imread("e4.jpg");
 Mat img5 = imread("e5.jpg");
 Mat img6 = imread("e6.jpg");
-Mat img7 = imread("e1.jpg");
-Mat img8 = imread("e2.jpg");
-Mat img9 = imread("e3.jpg");
+Mat img7 = imread("e7.jpg");
+Mat img8 = imread("e8.jpg");
+Mat img9 = imread("e1.jpg");
 
 ShowManyImages("Image", 9, img1, img2, img3, img4, img5, img6, img7, img8, img9);
 

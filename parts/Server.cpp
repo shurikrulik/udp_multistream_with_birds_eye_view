@@ -82,16 +82,18 @@ int main(int argc, char * argv[])
         exit(1);
     }*/
 
-    std::vector<std::thread> threads;
-
-    unsigned short servPort = atoi(argv[1]); // First arg:  local port
-	Mat recvFrame;
-    namedWindow("recv", CV_WINDOW_AUTOSIZE);
+	std::vector<std::thread> threads;
+	int totalNumberOfCameras = atoi(argv[1]);
+	unsigned short serverPort = atoi(argv[2]); // First arg:  local port
+	std::vector<Mat> allCamerasLastFrame(totalNumberOfCameras);
+	namedWindow("recv", CV_WINDOW_AUTOSIZE);
     while(1)
     {
+	for(int cameraIterator = 0; cameraIterator < totalNumberOfCameras; cameraIterator++)
 	    try {
-		    std::future<Mat> recvFrame = std::async(std::launch::async, udp_receive, servPort);
-			imshow("recv", recvFrame.get());
+			std::future<Mat> frame = std::async(std::launch::async, udp_receive, serverPort + cameraIterator);
+			allCamerasLastFrame[cameraIterator] = frame.get();
+			imshow("recv", allCamerasLastFrame[cameraIterator]);
 		}
 	     catch (SocketException & e) 
             {
