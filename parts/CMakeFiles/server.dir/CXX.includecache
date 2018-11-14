@@ -61,6 +61,12 @@ stdarg.h
 -
 future
 -
+opencv2/imgcodecs.hpp
+/home/aleksandr/Загрузки/multithreading/parts/opencv2/imgcodecs.hpp
+opencv2/highgui.hpp
+/home/aleksandr/Загрузки/multithreading/parts/opencv2/highgui.hpp
+opencv2/stitching.hpp
+/home/aleksandr/Загрузки/multithreading/parts/opencv2/stitching.hpp
 opencv2/opencv.hpp
 /home/aleksandr/Загрузки/multithreading/parts/opencv2/opencv.hpp
 config.h

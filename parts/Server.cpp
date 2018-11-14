@@ -11,6 +11,9 @@
 #include <stdarg.h>
 #include <future>
 
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/stitching.hpp"
 #include "opencv2/opencv.hpp"
 #include "config.h"
 #include "showManyImages.h"
@@ -27,7 +30,6 @@ std::mutex mutexSync;
 Mat udp_receive(unsigned short servPort)
 {
 	UDPSocket sock(servPort);
-
         char buffer[BUF_LEN]; // Buffer for echo string
         int recvMsgSize; // Size of received message
         string sourceAddress; // Address of datagram source
@@ -82,7 +84,9 @@ int main(int argc, char * argv[])
         cerr << "Usage: " << argv[0] << " <Server Port>" << endl;
         exit(1);
     }*/
-
+	Mat pano;
+	Stitcher::Mode mode = Stitcher::PANORAMA;
+	Ptr<Stitcher> stitcher = Stitcher::create(mode);
 	std::vector<std::thread> threads;
 	int totalNumberOfCameras = atoi(argv[1]);
 	unsigned short serverPort = atoi(argv[2]); // First arg:  local port
@@ -94,8 +98,9 @@ int main(int argc, char * argv[])
 	    try {
 			std::future<Mat> frame = std::async(std::launch::async, udp_receive, serverPort + cameraIterator);
 			allCamerasLastFrame[cameraIterator] = frame.get();
-			//imshow("recv", allCamerasLastFrame[cameraIterator]);
-			showManyImages("Output Video", totalNumberOfCameras, allCamerasLastFrame);
+			Stitcher::Status status = stitcher->stitch(allCamerasLastFrame, pano);
+			imshow("recv", pano);
+			//showManyImages("Output Video", totalNumberOfCameras, allCamerasLastFrame);
 		}
 	     catch (SocketException & e) 
             {
