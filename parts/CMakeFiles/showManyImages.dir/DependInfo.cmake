@@ -4,9 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/aleksandr/Загрузки/multithreading/parts/Client.cpp" "/home/aleksandr/Загрузки/multithreading/parts/CMakeFiles/client.dir/Client.cpp.o"
-  "/home/aleksandr/Загрузки/multithreading/parts/PracticalSocket.cpp" "/home/aleksandr/Загрузки/multithreading/parts/CMakeFiles/client.dir/PracticalSocket.cpp.o"
-  "/home/aleksandr/Загрузки/multithreading/parts/showManyImages.cpp" "/home/aleksandr/Загрузки/multithreading/parts/CMakeFiles/client.dir/showManyImages.cpp.o"
+  "/home/aleksandr/Загрузки/multithreading/parts/showManyImages.cpp" "/home/aleksandr/Загрузки/multithreading/parts/CMakeFiles/showManyImages.dir/showManyImages.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

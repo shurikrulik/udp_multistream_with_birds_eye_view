@@ -220,6 +220,36 @@ Server.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Server.cpp.s
 .PHONY : Server.cpp.s
 
+showManyImages.o: showManyImages.cpp.o
+
+.PHONY : showManyImages.o
+
+# target to build an object file
+showManyImages.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/showManyImages.cpp.o
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/showManyImages.cpp.o
+.PHONY : showManyImages.cpp.o
+
+showManyImages.i: showManyImages.cpp.i
+
+.PHONY : showManyImages.i
+
+# target to preprocess a source file
+showManyImages.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/showManyImages.cpp.i
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/showManyImages.cpp.i
+.PHONY : showManyImages.cpp.i
+
+showManyImages.s: showManyImages.cpp.s
+
+.PHONY : showManyImages.s
+
+# target to generate assembly for a file
+showManyImages.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/showManyImages.cpp.s
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/showManyImages.cpp.s
+.PHONY : showManyImages.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -239,6 +269,9 @@ help:
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"
+	@echo "... showManyImages.o"
+	@echo "... showManyImages.i"
+	@echo "... showManyImages.s"
 .PHONY : help
 
 

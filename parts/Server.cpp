@@ -13,6 +13,7 @@
 
 #include "opencv2/opencv.hpp"
 #include "config.h"
+#include "showManyImages.h"
 
 #define sleepTime 0.005s
 #define BUF_LEN 65540 // Larger than maximum UDP packet size
@@ -93,7 +94,8 @@ int main(int argc, char * argv[])
 	    try {
 			std::future<Mat> frame = std::async(std::launch::async, udp_receive, serverPort + cameraIterator);
 			allCamerasLastFrame[cameraIterator] = frame.get();
-			imshow("recv", allCamerasLastFrame[cameraIterator]);
+			//imshow("recv", allCamerasLastFrame[cameraIterator]);
+			showManyImages("Output Video", totalNumberOfCameras, allCamerasLastFrame);
 		}
 	     catch (SocketException & e) 
             {

@@ -1,7 +1,7 @@
 #include <opencv2/opencv.hpp>
-
 #include <stdio.h>
 #include <stdarg.h>
+#include "showManyImages.h"
 
 using namespace cv;
 using namespace std;
@@ -58,7 +58,7 @@ cegparamesh[at]gmail[dot]com
 ...
 ///////////////////////////////////////////////////////////////////////*/
 
-void ShowManyImages(string title, int nArgs, ...) {
+void showManyImages(string title, int nArgs, std::vector<Mat> allCamerasLastFrame) {
 int size;
 int i;
 int m, n;
@@ -87,23 +87,23 @@ else if(nArgs > 14) {
 // from number of arguments
 else if (nArgs == 1) {
     w = h = 1;
-    size = 300;
+    size = 500;
 }
 else if (nArgs == 2) {
     w = 2; h = 1;
-    size = 300;
+    size = 400;
 }
 else if (nArgs == 3 || nArgs == 4) {
     w = 2; h = 2;
-    size = 300;
+    size = 400;
 }
 else if (nArgs == 5 || nArgs == 6) {
     w = 3; h = 2;
-    size = 200;
+    size = 300;
 }
 else if (nArgs == 7 || nArgs == 8) {
     w = 4; h = 2;
-    size = 200;
+    size = 300;
 }
 else if (nArgs == 9) {
     w = 3; h = 3;
@@ -112,20 +112,22 @@ else if (nArgs == 9) {
 
 else {
     w = 4; h = 3;
-    size = 150;
+    size = 200;
 }
 
 // Create a new 3 channel image
 Mat DispImage = Mat::zeros(Size(100 + size*w, 60 + size*h), CV_8UC3);
 
 // Used to get the arguments passed
-va_list args;
-va_start(args, nArgs);
+//va_list args;
+//va_start(args, nArgs);
 
 // Loop for nArgs number of arguments
-for (i = 0, m = 20, n = 20; i < nArgs; i++, m += (20 + size)) {
+//for (i = 0, m = 20, n = 20; i < nArgs; i++, m += (20 + size)) {
+  for (i = 0; i < nArgs; i++) {
     // Get the Pointer to the IplImage
-    Mat img = va_arg(args, Mat);
+    //Mat img = va_arg(args, Mat);
+    Mat img = allCamerasLastFrame[i];
 
     // Check whether it is NULL or not
     // If it is NULL, release the image, and return
@@ -163,10 +165,10 @@ imshow( title, DispImage);
 waitKey();
 
 // End the number of arguments
-va_end(args);
+//va_end(args);
 }
 
-int main() {
+/*int main() {
 
 Mat img1 = imread("e1.jpg");
 Mat img2 = imread("e2.jpg");
@@ -182,4 +184,4 @@ ShowManyImages("Image", 9, img1, img2, img3, img4, img5, img6, img7, img8, img9)
 
 return 0;
 
-}
+}*/
